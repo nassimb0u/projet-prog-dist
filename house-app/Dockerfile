@@ -1,21 +1,24 @@
-# Use an official Node runtime as a base image
-FROM node:14-alpine
+# Utiliser une image de node.js comme base
+FROM node:14
 
-# Set the working directory in the container
+# Créer le répertoire de travail dans le conteneur
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the container
+# Copier le package.json et le package-lock.json pour installer les dépendances
 COPY package*.json ./
 
-# Install app dependencies
+# Installer les dépendances
 RUN npm install
 
-# Copy the rest of the application code to the container
+# Copier le reste des fichiers de l'application dans le conteneur
 COPY . .
 
-# Expose the port on which the app runs
-EXPOSE 3000
+# Construire l'application React
+RUN npm run build
 
-# Start the app
+# Exposer le port sur lequel l'application écoute
+EXPOSE 5000
+
+# Commande pour démarrer l'application lorsqu'un conteneur basé sur cette image est lancé
 CMD ["npm", "start"]
 
