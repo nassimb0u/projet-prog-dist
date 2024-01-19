@@ -1,3 +1,4 @@
+
 # Utiliser une image de node.js comme base
 FROM node:14
 
@@ -17,8 +18,7 @@ COPY . .
 RUN npm run build
 
 # Exposer le port sur lequel l'application écoute
-EXPOSE 5000
+EXPOSE 3000
 
 # Commande pour démarrer l'application lorsqu'un conteneur basé sur cette image est lancé
 CMD ["npm", "start"]
-
