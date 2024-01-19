@@ -22,6 +22,9 @@ const Recent = () => {
 
     fetchDataFromAPI();
   }, []); // Le tableau vide signifie que cet effet s'exécute une seule fois lors du montage du composant
+// TestData.js
+
+
 
   return (
     <>
@@ -29,10 +32,10 @@ const Recent = () => {
         <div className='container'>
           <Heading title='Recent Property Listed' subtitle='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.' />
           {error ? (
-  <p style={{ color: "red", textAlign: "center" }}>{error}</p>
-) : (
-  <RecentCard data={data} />
-)}
+            <p style={{ color: "red", textAlign: "center" }}>{error}</p>
+          ) : (
+            <RecentCard data={data} />
+          )}
         </div>
       </section>
     </>

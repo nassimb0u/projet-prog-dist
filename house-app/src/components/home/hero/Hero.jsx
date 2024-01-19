@@ -46,7 +46,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const response = await fetch("http://your-api-url/predict-price", {
+    const response = await fetch("http://ml-api/predict-price", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

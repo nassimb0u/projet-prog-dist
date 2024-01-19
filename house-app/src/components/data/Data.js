@@ -288,13 +288,21 @@ export const price = [
     ],
   },
 ]
+
+// Data.js
+
+const apiUrl = 'http://db-api/houses'; // Replace with your FastAPI endpoint
+
 export const fetchData = async () => {
   try {
-    const response = await fetch("votre_endpoint_api");
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error('Error fetching data');
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Erreur lors de la récupération des données :", error);
-    throw error; // Vous pouvez choisir de gérer l'erreur ici ou la propager
+    throw new Error('Une erreur s\'est produite lors de la récupération des données.');
   }
 };
