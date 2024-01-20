@@ -44,11 +44,11 @@ class PredRequest(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello world from ml-api"}
 
 
 @app.post("/predict-price")
-async def predict_price(pred_request: Annotated[PredRequest, Body(embed=True)]):
+async def predict_price(pred_request: PredRequest = Body(...)):
     pred_request = pred_request.model_dump()
     features = pd.json_normalize(
         {"LSTAT": pred_request["LSTAT"], "RM": pred_request["RM"]}
