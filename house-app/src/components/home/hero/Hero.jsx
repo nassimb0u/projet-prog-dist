@@ -24,9 +24,7 @@ const Hero = () => {
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [loading, setLoading] = useState(false);
 
-const closeErrorPopup = () => {
-  setShowErrorPopup(false);
-};
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -41,12 +39,12 @@ const handleSaveToggle = () => {
     ...formData,
     save: !saveData,
   });
-};
-const handleSubmit = async (e) => {
+};  const handleSubmit = async (e) => {
   e.preventDefault();
+  setLoading(true);
 
   try {
-    const response = await fetch("http://ml-api/predict-price", {
+    const response = await fetch("http://localhost:8000/predict-price", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,11 +63,10 @@ const handleSubmit = async (e) => {
     setShowPopup(true);
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
-    
-    // Afficher la pop-up d'erreur ici
-    setShowErrorPopup(true);  }finally {
-      setLoading(false);
-    }
+    setShowErrorPopup(true);
+  } finally {
+    setLoading(false);
+  }
 };
 
 const closePopup = () => {
@@ -77,6 +74,9 @@ const closePopup = () => {
   setPredictedPrice(null);
 };
 
+const closeErrorPopup = () => {
+  setShowErrorPopup(false);
+};
 
   return (
     <>

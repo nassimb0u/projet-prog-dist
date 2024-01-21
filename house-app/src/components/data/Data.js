@@ -291,13 +291,19 @@ export const price = [
 
 // Data.js
 
-const apiUrl = 'http://db-api/houses'; // Replace with your FastAPI endpoint
+const apiUrl = 'http://127.0.0.1:8080/houses';
 
 export const fetchData = async () => {
   try {
-    const response = await fetch(apiUrl);
+    const response = await fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
     if (!response.ok) {
-      throw new Error('Error fetching data');
+      throw new Error('Erreur lors de la récupération des données');
     }
 
     const data = await response.json();
@@ -306,3 +312,4 @@ export const fetchData = async () => {
     throw new Error('Une erreur s\'est produite lors de la récupération des données.');
   }
 };
+
