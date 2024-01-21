@@ -288,8 +288,8 @@ export const price = [
     ],
   },
 ]
+const apiUrl = 'http://localhost:8080/houses';
 
-const apiUrl = 'http://172.17.0.1:8080/houses';
 
 export const fetchData = async () => {
   try {
