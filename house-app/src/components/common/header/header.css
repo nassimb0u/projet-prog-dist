@@ -1,0 +1,94 @@
+.hero {
+  background-image: url("../../../../public/images/banner.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  width: 100%;
+}
+
+.hero .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero h1 {
+  color: #2c3e50; /* Dark gray color for the heading */
+  font-size: 60px;
+  margin-bottom: 20px; /* Add some space below the heading */
+}
+
+.hero p {
+  color: #34495e; /* Slightly lighter gray for the paragraph text */
+  opacity: 0.8;
+  margin-bottom: 30px; /* Add more space below the paragraph */
+}
+
+form {
+  background-color: #ecf0f1; /* Light gray background for the form */
+  border-radius: 5px;
+  margin-top: 50px;
+  padding: 20px; /* Add padding to the form */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+form input {
+  width: calc(33.33% - 10px);
+  padding: 10px;
+  margin-top: 10px; /* Add more space above each input */
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+form span {
+  font-size: 14px;
+  color: #7f8c8d; /* Light gray color for the span text */
+}
+
+input::placeholder {
+  font-size: 17px;
+  color: #95a5a6; /* Lighter gray color for the placeholder text */
+}
+
+form .box {
+  flex: 0 0 calc(33.33% - 10px);
+  padding: 15px;
+  margin-bottom: 20px; /* Add more space below each box */
+  border-left: 1px solid rgba(128, 128, 128, 0.2);
+  box-sizing: border-box;
+}
+
+form .box:nth-child(3n + 1) {
+  border-left: none;
+}
+
+form h4 {
+  font-weight: 500;
+  margin-bottom: 10px; /* Add more space below the h4 element */
+}
+
+.row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
+form .btn1 {
+  margin-left: 10px;
+}
+.nav li {
+  margin-right: 20px; /* Add space between list items */
+}
+
+.nav li:last-child {
+  margin-right: 0; /* Remove margin for the last list item */
+}
+.nav li a {
+  color: black; /* Set the text color to black */
+}
