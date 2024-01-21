@@ -50,7 +50,7 @@ const handleSaveToggle = () => {
 
 
     
-    const response = await fetch('http://127.0.0.1:8000/predict-price', {
+    const response = await fetch('http://172.17.0.1:8000/predict-price', {
       method: 'POST'  ,
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
