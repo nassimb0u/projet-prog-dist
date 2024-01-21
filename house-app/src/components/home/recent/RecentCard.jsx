@@ -18,7 +18,7 @@ const RecentCard = ({ data }) => {
                   <span style={{ background: "#25b5791a", color: "#25b579" }}>For Sale</span>
                   <i className='fa fa-heart'></i>
                 </div>
-                <h4>{`AGE: ${AGE}, CRIM: ${CRIM}, LSTAT: ${LSTAT}`}</h4>
+                <h4>{`AGE: ${AGE}, CRIM: ${CRIM}, LSTAT: ${LSTAT} ,PRIX : ${MEDV}`}</h4>
               </div>
             </div>
           );

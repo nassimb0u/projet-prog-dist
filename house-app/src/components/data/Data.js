@@ -289,27 +289,21 @@ export const price = [
   },
 ]
 
-// Data.js
-
 const apiUrl = 'http://127.0.0.1:8080/houses';
 
 export const fetchData = async () => {
   try {
-    const response = await fetch(apiUrl, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+
+    const response = await fetch(apiUrl);
+    const data = await response.json();
 
     if (!response.ok) {
-      throw new Error('Erreur lors de la récupération des données');
+      throw new Error(data?.message || 'Erreur lors de la récupération des données');
     }
 
-    const data = await response.json();
     return data;
   } catch (error) {
-    throw new Error('Une erreur s\'est produite lors de la récupération des données.');
+    throw new Error(`Une erreur s'est produite lors de la récupération des données: ${error}`);
   }
 };
 

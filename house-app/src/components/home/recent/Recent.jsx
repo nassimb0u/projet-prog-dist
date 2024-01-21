@@ -14,6 +14,8 @@ const Recent = () => {
       try {
         const apiData = await fetchData();
         setData(apiData);
+        
+
       } catch (error) {
         setError("Une erreur s'est produite lors de la récupération des données.");
         console.error("Erreur lors de la récupération des données :", error);

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Heading from "../../common/Heading";
+import axios from 'axios'; // Import Axios at the beginning of your file
+
 import "./hero.css";
 const Hero = () => {
   const [formData, setFormData] = useState({
@@ -39,36 +41,41 @@ const handleSaveToggle = () => {
     ...formData,
     save: !saveData,
   });
-};  const handleSubmit = async (e) => {
+}; const handleSubmit = async (e) => {
   e.preventDefault();
   setLoading(true);
 
   try {
-    const response = await fetch("http://localhost:8000/predict-price", {
-      method: "POST",
+    const element = document.querySelector('#post-request-async-await .article-id');
+
+
+    
+    const response = await fetch('http://127.0.0.1:8000/predict-price', {
+      method: 'POST'  ,
       headers: {
-        "Content-Type": "application/json",
+        'Content-type': 'application/json; charset=UTF-8',
       },
-      body: JSON.stringify(formData),
-    });
+            body: JSON.stringify(formData)
+  });
 
     if (!response.ok) {
-      throw new Error("Network response was not ok");
+      const errorData = await response.json();
+      throw new Error(`Server error: ${response.status} - ${errorData.message}`);
     }
 
-    const result = await response.json();
-    const predictedPrice = result.price;
+    const data = await response.json(); // Analyser la réponse JSON
 
-    setPredictedPrice(predictedPrice);
+    setPredictedPrice(data.MEDV);
     setShowPopup(true);
+
+    // Update your UI element with the predicted price
   } catch (error) {
-    console.error("There was a problem with the fetch operation:", error);
+    console.error('There was a problem with the fetch operation:', error);
     setShowErrorPopup(true);
   } finally {
     setLoading(false);
   }
 };
-
 const closePopup = () => {
   setShowPopup(false);
   setPredictedPrice(null);
