@@ -291,7 +291,7 @@ export const price = [
 
 // Data.js
 
-const apiUrl = 'http://127.0.0.1:8080/houses';
+const apiUrl = 'http://localhost:8080/houses';
 
 export const fetchData = async () => {
   try {
