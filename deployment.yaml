@@ -1,0 +1,127 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monolith-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monolith-app
+  template:
+    metadata:
+      labels:
+        app: monolith-app
+    spec:
+      containers:
+        - name: db-container
+          image: nassimb/projet-prog-dist-db-api:1.3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+spec:
+  ports:
+    - name: http
+      targetPort: 80
+      port: 8080
+  selector:
+    app: monolith-app
+    
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamlit-deployment
+  labels:
+    app: streamlit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamlit
+  template:
+    metadata:
+      labels:
+        app: streamlit
+    spec:
+      containers:
+        - name: streamlit
+          image: mohamedaminebentayeb/ui-app:2.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8501
+          livenessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+              scheme: HTTP
+            timeoutSeconds: 1
+          readinessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+              scheme: HTTP
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 1
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 745Mi
+      volumes:
+        - name: oauth2-config
+          configMap:
+            name: streamlit-configmap
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: streamlit-service
+spec:
+  selector:
+    app: streamlit
+  ports:
+    - name: streamlit-port
+      protocol: TCP
+      port: 80
+      targetPort: 8501
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-service
+  template:
+    metadata:
+      labels:
+        app: ml-service
+    spec:
+      containers:
+        - name: ml-service-container
+          image: nassimb/projet-prog-dist-ml-api:1.3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ml-service
+spec:
+  ports:
+    - name: http
+      targetPort: 80
+      port: 8000
+  selector:
+    app: ml-service
