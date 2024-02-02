@@ -1,0 +1,4 @@
+requests
+streamlit
+altair
+# Ajoutez d'autres dépendances si nécessaire
