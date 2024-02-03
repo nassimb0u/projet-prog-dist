@@ -70,7 +70,7 @@ Suivez ces étapes pour déployer et utiliser l'application :
 Le projet est déployé sur Google Cloud Kubernetes Engine (GKE), garantissant une mise à l'échelle efficace et une disponibilité continue des services.
 
 
-L'application est accessible via la [web app](http://34.42.151.225/). Veuillez noter que cette adresse ne sera plus disponible une fois l'offre gratuite de Google Cloud terminée.
+L'application est accessible via ce lien : [web app](http://34.42.151.225/). Veuillez noter que cette adresse ne sera plus disponible une fois l'offre gratuite de Google Cloud terminée.
 
 
 
