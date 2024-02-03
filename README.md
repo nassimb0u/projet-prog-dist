@@ -63,7 +63,7 @@ Suivez ces étapes pour déployer et utiliser l'application :
 ## Auteurs
 
 - Mohamed Amine Bentayeb (jm_bentayeb@esi.dz)
-- Nassim Boulechfa (in_boulechfar@esi.dz)
+- Nassim Boulechfar (in_boulechfar@esi.dz)
 
 ## Déploiement sur le cloud
 
