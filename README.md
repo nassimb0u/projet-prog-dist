@@ -65,7 +65,12 @@ Suivez ces étapes pour déployer et utiliser l'application :
 - Mohamed Amine Bentayeb (jm_bentayeb@esi.dz)
 - Nassim Boulechfa (in_boulechfar@esi.dz)
 
-## Déploiement sur le cloud 
-Le projet  est déployé sur Google Cloud Kubernetes Engine (GKE), garantissant une mise à l'échelle efficace et une disponibilité continue des services.
+## Déploiement sur le cloud
 
-Chaque composant du projet est conteneurisé à l'aide de Docker et orchestré à l'aide de Kubernetes pour une gestion simplifiée des conteneurs.
+Le projet est déployé sur Google Cloud Kubernetes Engine (GKE), garantissant une mise à l'échelle efficace et une disponibilité continue des services.
+
+
+L'application est accessible via la [web app](http://34.42.151.225/). Veuillez noter que cette adresse ne sera plus disponible une fois l'offre gratuite de Google Cloud terminée.
+
+
+
