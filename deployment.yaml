@@ -24,6 +24,7 @@ kind: Service
 metadata:
   name: db-service
 spec:
+  
   ports:
     - name: http
       targetPort: 80
@@ -85,6 +86,7 @@ kind: Service
 metadata:
   name: streamlit-service
 spec:
+  type: LoadBalancer
   selector:
     app: streamlit
   ports:
@@ -119,6 +121,7 @@ kind: Service
 metadata:
   name: ml-service
 spec:
+  
   ports:
     - name: http
       targetPort: 80
