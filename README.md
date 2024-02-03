@@ -53,7 +53,7 @@ Suivez ces étapes pour déployer et utiliser l'application :
 1. Assurez-vous que vous avez un cluster Kubernetes opérationnel.
 2. Appliquez les fichiers de déploiement à l'aide de la commande `kubectl apply -f deployment.yaml`.
 3. Les services seront exposés sur les ports spécifiés dans les fichiers de déploiement.
-4. Accédez à l'interface utilisateur en utilisant le service Streamlit.
+4. Accédez à l'interface utilisateur en utilisant le service Streamlit à l'aide de la commande `minikube service  streamlit-service`.
 ## Images Docker Utilisées
 
 - **db-api:** `nassimb/projet-prog-dist-db-api:1.3`
